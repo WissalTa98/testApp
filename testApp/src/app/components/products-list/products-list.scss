@@ -4,17 +4,21 @@ $radius: 4px;
 $border: $athens-grey;
 $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
+@function tok($var, $fallback) {
+  @return var(#{$var}, #{$fallback});
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: $maingrey;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: tok(--dt-color-text, $maingrey);
 }
 
 .card {
-  background: $white;
-  border: 1px solid $border;
-  border-radius: $radius;
+  background: tok(--dt-color-surface, $white);
+  border: 1px solid tok(--dt-color-border, $border);
+  border-radius: tok(--dt-radius, $radius);
   box-shadow: $shadow;
   overflow: hidden;
 }
@@ -23,9 +27,9 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid $border;
-  gap: 16px;
+  padding: tok(--dt-toolbar-padding, 12px 16px);
+  border-bottom: 1px solid tok(--dt-color-border, $border);
+  gap: tok(--dt-gap, 16px);
 
   .toolbar-left {
     display: flex;
@@ -48,7 +52,7 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     position: absolute;
     right: 0;
     bottom: 8px;
-    color: $jumbo-grey;
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
     pointer-events: none;
     width: 18px;
     height: 18px;
@@ -57,20 +61,19 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   input {
     padding: 8px 28px 8px 0;
     border: none;
-    border-bottom: 1px solid $jumbo-grey;
+    border-bottom: 1px solid tok(--dt-color-text-secondary, $jumbo-grey);
     border-radius: 0;
     font-size: 14px;
     width: 240px;
     background: transparent;
-    color: $maingrey;
+    color: tok(--dt-color-text, $maingrey);
 
     &:focus {
       outline: none;
-      border-bottom-color: $maingrey;
-    }
+      border-bottom-color: tok(--dt-color-primary, $maingrey);    }
 
     &::placeholder {
-      color: $french-grey;
+      color: tok(--dt-color-text-placeholder, $french-grey);
     }
   }
 }
@@ -80,9 +83,9 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   flex-wrap: wrap;
   gap: 16px;
   align-items: flex-end;
-  padding: 12px 16px;
-  background: $whisper-light-grey;
-  border-bottom: 1px solid $border;
+  padding: tok(--dt-toolbar-padding, 12px 16px);
+  background: tok(--dt-color-background, $whisper-light-grey);
+  border-bottom: 1px solid tok(--dt-color-border, $border);
   animation: slideDown 0.2s ease-out;
 
   .filter-group {
@@ -96,37 +99,37 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: $jumbo-grey;
+      color: tok(--dt-color-text-secondary, $jumbo-grey);
     }
 
     select {
       padding: 7px 12px;
-      border: 1px solid $border;
-      border-radius: $radius;
+      border: 1px solid tok(--dt-color-border, $border);
+      border-radius: tok(--dt-radius, $radius);
       font-size: 13px;
-      background: $white;
-      color: $maingrey;
+      background: tok(--dt-color-surface, $white);
+      color: tok(--dt-color-text, $maingrey);
 
       &:focus {
         outline: none;
-        border-color: $maingrey;
+        border-color: tok(--dt-color-primary, $maingrey);
       }
     }
   }
 
   .btn-reset {
     padding: 7px 16px;
-    border: 1px solid $border;
-    border-radius: $radius;
-    background: $white;
-    color: $jumbo-grey;
+    border: 1px solid tok(--dt-color-border, $border);
+    border-radius: tok(--dt-radius, $radius);
+    background: tok(--dt-color-surface, $white);
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
     font-size: 13px;
     cursor: pointer;
 
     &:hover {
-      background: $maingrey;
-      color: $yellow;
-      border-color: $maingrey;
+      background: tok(--dt-color-primary, $maingrey);
+      color: tok(--dt-color-accent, $yellow);
+      border-color: tok(--dt-color-primary, $maingrey);
     }
   }
 }
@@ -153,13 +156,13 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   align-items: center;
   justify-content: center;
   padding: 80px 24px;
-  color: $jumbo-grey;
+  color: tok(--dt-color-text-secondary, $jumbo-grey);
 
   .spinner {
     width: 44px;
     height: 44px;
-    border: 4px solid $athens-grey;
-    border-top-color: $maingrey;
+    border: 4px solid tok(--dt-color-spinner-track, $athens-grey);
+    border-top-color: tok(--dt-color-primary, $maingrey);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     margin-bottom: 16px;
@@ -167,7 +170,7 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
   p {
     font-size: 14px;
-    color: $jumbo-grey;
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
   }
 }
 
@@ -184,36 +187,36 @@ $shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: center;
 
   .empty-icon {
-    color: $french-grey;
+    color: tok(--dt-color-text-placeholder, $french-grey);
     margin-bottom: 16px;
   }
 
   h3 {
     font-size: 18px;
     font-weight: 600;
-    color: $maingrey;
+    color: tok(--dt-color-text, $maingrey);
     margin-bottom: 8px;
   }
 
   p {
     font-size: 14px;
-    color: $jumbo-grey;
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
     margin-bottom: 20px;
   }
 
   .btn-reset {
     padding: 7px 16px;
-    border: 1px solid $border;
-    border-radius: $radius;
-    background: $white;
-    color: $jumbo-grey;
+    border: 1px solid tok(--dt-color-border, $border);
+    border-radius: tok(--dt-radius, $radius);
+    background: tok(--dt-color-surface, $white);
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
     font-size: 13px;
     cursor: pointer;
 
     &:hover {
-      background: $maingrey;
-      color: $yellow;
-      border-color: $maingrey;
+      background: tok(--dt-color-primary, $maingrey);
+      color: tok(--dt-color-accent, $yellow);
+      border-color: tok(--dt-color-primary, $maingrey);
     }
   }
 }
@@ -228,23 +231,23 @@ table {
   font-size: 14px;
 
   thead {
-    background: $maingrey;
+    background: tok(--dt-color-primary, $maingrey);
 
     tr th {
       padding: 14px 16px;
       text-align: left;
-      color: $white;
+      color: tok(--dt-color-surface, $white);
       font-weight: 600;
       font-size: 13px;
       white-space: nowrap;
       user-select: none;
-      border-bottom: 2px solid $yellow;
+      border-bottom: 2px solid tok(--dt-color-accent, $yellow);
 
       &.sortable {
         cursor: pointer;
 
         &:hover {
-          background: $tuna-dark-grey;
+          background: tok(--dt-color-primary-hover, $tuna-dark-grey);
         }
       }
 
@@ -258,20 +261,20 @@ table {
 
   tbody {
     tr {
-      border-bottom: 1px solid $athens-grey-lighter;
+      border-bottom: 1px solid tok(--dt-color-border-light, $athens-grey-lighter);
 
       &:nth-child(even) {
-        background: $whisper-light-grey;
+        background: tok(--dt-color-background, $whisper-light-grey);
       }
 
       &:hover {
-        background: $athens-grey-light;
+        background: tok(--dt-color-row-hover, $athens-grey-light);
       }
 
       td {
         padding: 12px 16px;
         white-space: nowrap;
-        color: $maingrey;
+        color: tok(--dt-color-text, $maingrey);
         font-size: 14px;
       }
     }
@@ -287,18 +290,18 @@ table {
   white-space: nowrap;
 
   &.in-stock {
-    background: $narvik-light-green;
-    color: $chateau-green;
+    background: tok(--dt-color-in-stock-bg, $narvik-light-green);
+    color: tok(--dt-color-in-stock, $chateau-green);
   }
 
   &.low-stock {
-    background: #FFF8E1;
-    color: $orange-200;
+    background: tok(--dt-color-low-stock-bg, #FFF8E1);
+    color: tok(--dt-color-low-stock, $orange-200);
   }
 
   &.out-of-stock {
-    background: $whisp-pink;
-    color: $thunderbird-maroon;
+    background: tok(--dt-color-out-of-stock-bg, $whisp-pink);
+    color: tok(--dt-color-out-of-stock, $thunderbird-maroon);
   }
 }
 
@@ -306,13 +309,13 @@ table {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: tok(--dt-gap, 16px);
   margin-top: 12px;
   padding: 12px;
   font-size: 13px;
 
   .page-info {
-    color: $jumbo-grey;
+    color: tok(--dt-color-text-secondary, $jumbo-grey);
     font-size: 13px;
     white-space: nowrap;
   }
@@ -325,22 +328,22 @@ table {
     button {
       min-width: 32px;
       height: 32px;
-      border: 1px solid $border;
-      border-radius: $radius;
-      background: $white;
-      color: $maingrey;
+      border: 1px solid tok(--dt-color-border, $border);
+      border-radius: tok(--dt-radius, $radius);
+      background: tok(--dt-color-surface, $white);
+      color: tok(--dt-color-text, $maingrey);
       font-size: 14px;
       cursor: pointer;
 
       &:hover:not(:disabled):not(.active) {
-        background: $athens-grey-light;
-        border-color: $jumbo-grey;
+        background: tok(--dt-color-row-hover, $athens-grey-light);
+        border-color: tok(--dt-color-text-secondary, $jumbo-grey);
       }
 
       &.active {
-        background: $maingrey;
-        color: $yellow;
-        border-color: $maingrey;
+        background: tok(--dt-color-primary, $maingrey);
+        color: tok(--dt-color-accent, $yellow);
+        border-color: tok(--dt-color-primary, $maingrey);
         font-weight: 700;
       }
 
@@ -357,18 +360,18 @@ table {
     gap: 6px;
 
     label {
-      color: $jumbo-grey;
+      color: tok(--dt-color-text-secondary, $jumbo-grey);
       font-size: 13px;
       white-space: nowrap;
     }
 
     select {
       padding: 4px 8px;
-      border: 1px solid $border;
-      border-radius: $radius;
+      border: 1px solid tok(--dt-color-border, $border);
+      border-radius: tok(--dt-radius, $radius);
       font-size: 13px;
-      background: $white;
-      color: $maingrey;
+      background: tok(--dt-color-surface, $white);
+      color: tok(--dt-color-text, $maingrey);
     }
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Product, ProductCategory, ProductStatus } from '../../models/product.model';
@@ -10,6 +10,7 @@ import {
   sortProducts,
   paginate,
 } from '../../utils/product.utils';
+import { TableTokens, tokensToCssVars } from '../../models/design.token.model';
 
 @Component({
   selector: 'app-products-list',
@@ -19,6 +20,7 @@ import {
   styleUrl: './products-list.scss',
 })
 export class ProductsList implements OnInit {
+  @Input() tokens: TableTokens = {};
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
   pagedProducts: Product[] = [];
@@ -134,5 +136,9 @@ export class ProductsList implements OnInit {
       this.loadingTimer = null;
       this.cd.markForCheck();
     }, delay);
+  }
+
+  get tokenStyles(): Record<string, string> {
+    return tokensToCssVars(this.tokens);
   }
 }
