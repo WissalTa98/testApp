@@ -2,11 +2,16 @@
 
 ## Why did you structure the component the way you did?
 Separation of concerns, each layer has one job:
-      models/ — Defines the data shape (Product interface, category/status types). Uses union types instead of enums so they match JSON strings directly.
-      services/ — Loads the data. If I later switch from a JSON file to an API call, I only change this one file.
-      utils/ — Filtering, sorting, and pagination are plain functions. Easy to reuse.
-      styles/_colors.scss — All brand colours in one place.
-      components/product-list/ — The component itself only manages state and handles clicks. The heavy logic lives in utils.
+      models/  
+      — Defines the data shape (Product interface, category/status types). Uses union types instead of enums so they match JSON strings directly.
+      services/ 
+      — Loads the data. If I later switch from a JSON file to an API call, I only change this one file.
+      utils/ 
+      — Filtering, sorting, and pagination are plain functions. Easy to reuse.
+      styles/_colors.scss 
+      — All brand colours in one place.
+      components/product-list/ 
+      — The component itself only manages state and handles clicks. The heavy logic lives in utils.
 
 ## What trade-offs did you consciously make?
     Faked loading with setTimeout, a real app would use HTTP calls.
