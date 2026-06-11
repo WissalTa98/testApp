@@ -1,7 +1,7 @@
 # Architecture Decision Log
 
 ## Why did you structure the component the way you did?
-Separation of concerns, each layer has one job:
+      Separation of concerns, each layer has one job:
       models/  
       — Defines the data shape (Product interface, category/status types). Uses union types instead of enums so they match JSON strings directly.
       services/ 
