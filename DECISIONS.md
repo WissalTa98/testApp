@@ -24,14 +24,14 @@
     Hardcoded columns: Adding/removing columns means editing HTML. Should be a dynamic config array.
 
 ## What would change if this needed to support both Angular AND React?
-I'd turn the component into a Web Component using @angular/elements. That way it becomes a regular HTML tag <product-list> that React can just drop in.
+      I'd turn the component into a Web Component using @angular/elements. That way it becomes a regular HTML tag <product-list> that React can just drop in.
 
 ## Describe one specific bug or edge case you encountered and how you fixed it.
-A bug I hit: the loading spinner worked on first load but never showed again.
-When I first built the loading state, I set isLoading = true in ngOnInit and isLoading = false at the end of loadProducts(). 
-That worked fine for the initial load, the spinner appeared, data loaded, spinner disappeared.
-But when the user filtered, sorted, or changed pages, there was no spinner. The data just jumped instantly. 
-I wanted a brief loading indicator on every action to feel consistent.
-My fix was a withLoading() helper that wraps any action in a setTimeout. 
-It sets isLoading = true immediately, then runs the actual logic after a short delay and sets isLoading = false when done. 
-Every action like filter, sort, page change just calls withLoading(() => this.doWork()).
+      A bug I hit: the loading spinner worked on first load but never showed again.
+      When I first built the loading state, I set isLoading = true in ngOnInit and isLoading = false at the end of loadProducts(). 
+      That worked fine for the initial load, the spinner appeared, data loaded, spinner disappeared.
+      But when the user filtered, sorted, or changed pages, there was no spinner. The data just jumped instantly. 
+      I wanted a brief loading indicator on every action to feel consistent.
+      My fix was a withLoading() helper that wraps any action in a setTimeout. 
+      It sets isLoading = true immediately, then runs the actual logic after a short delay and sets isLoading = false when done. 
+      Every action like filter, sort, page change just calls withLoading(() => this.doWork()).
