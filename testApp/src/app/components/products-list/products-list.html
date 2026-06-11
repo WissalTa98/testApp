@@ -1,1 +1,172 @@
-<p>products-list works!</p>
+<div class="container">
+  <div class="card">
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <div class="filters-panel">
+          <div class="filter-group">
+            <label for="category">Category</label>
+            <select id="category" [(ngModel)]="selectedCategory" (ngModelChange)="applyFilters()">
+              <option value="">All Categories</option>
+              <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="status">Status</label>
+            <select id="status" [(ngModel)]="selectedStatus" (ngModelChange)="applyFilters()">
+              <option value="">All Statuses</option>
+              <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+            </select>
+          </div>
+
+          <button class="btn-reset" (click)="resetFilters()">Reset</button>
+        </div>
+      </div>
+
+      <div class="toolbar-right">
+        <div class="search-box">
+          <input
+            type="text"
+            placeholder="Search"
+            [(ngModel)]="searchText"
+            (ngModelChange)="applyFilters()"
+          />
+          <svg
+            class="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="onSort('id')" class="sortable">
+              ID <span class="sort-icon">{{ getSortIcon('id') }}</span>
+            </th>
+            <th (click)="onSort('name')" class="sortable">
+              Name <span class="sort-icon">{{ getSortIcon('name') }}</span>
+            </th>
+            <th (click)="onSort('category')" class="sortable">
+              Category <span class="sort-icon">{{ getSortIcon('category') }}</span>
+            </th>
+            <th (click)="onSort('price')" class="sortable">
+              Price <span class="sort-icon">{{ getSortIcon('price') }}</span>
+            </th>
+            <th (click)="onSort('stock')" class="sortable">
+              Stock <span class="sort-icon">{{ getSortIcon('stock') }}</span>
+            </th>
+            <th (click)="onSort('status')" class="sortable">
+              Status <span class="sort-icon">{{ getSortIcon('status') }}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (isLoading) {
+            <tr>
+              <td colspan="6" class="table-state-cell">
+                <div class="loading-state">
+                  <div class="spinner"></div>
+                  <p>Loading products...</p>
+                </div>
+              </td>
+            </tr>
+
+          } @else if (filteredProducts.length === 0) {
+            <tr>
+              <td colspan="6" class="table-state-cell">
+                <div class="empty-state">
+                  <svg
+                    class="empty-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
+                  </svg>
+                  <h3>No products found</h3>
+                  <p>Try adjusting your search or filter criteria.</p>
+                  <button class="btn-reset" (click)="resetFilters()">Clear all filters</button>
+                </div>
+              </td>
+            </tr>
+
+          } @else {
+            <tr *ngFor="let product of pagedProducts">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.category }}</td>
+              <td>{{ product.price | currency }}</td>
+              <td>{{ product.stock }}</td>
+              <td>
+                <span
+                  class="status-badge"
+                  [class.in-stock]="product.status === 'In Stock'"
+                  [class.low-stock]="product.status === 'Low Stock'"
+                  [class.out-of-stock]="product.status === 'Out of Stock'"
+                >
+                  {{ product.status }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    @if (!isLoading && filteredProducts.length > 0) {
+      <div class="pagination-bar">
+        <div class="page-info">
+          {{ currentPage }} of {{ totalPages }} pages ({{ filteredProducts.length }} items)
+        </div>
+
+        <div class="page-controls">
+          <button [disabled]="currentPage === 1" (click)="goToPage(1)">|&lsaquo;</button>
+          <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">
+            &lsaquo;
+          </button>
+
+          <button *ngFor="let p of pages" [class.active]="p === currentPage" (click)="goToPage(p)">
+            {{ p }}
+          </button>
+
+          <button [disabled]="currentPage === totalPages" (click)="goToPage(currentPage + 1)">
+            &rsaquo;
+          </button>
+          <button [disabled]="currentPage === totalPages" (click)="goToPage(totalPages)">
+            &rsaquo;|
+          </button>
+
+          <div class="page-size">
+            <select id="pageSize" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+              <option [ngValue]="10">10</option>
+              <option [ngValue]="25">25</option>
+              <option [ngValue]="50">50</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
