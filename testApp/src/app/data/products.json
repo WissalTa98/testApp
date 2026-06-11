@@ -1,0 +1,322 @@
+[
+    {
+        "id": 1,
+        "name": "Wireless Bluetooth Headphones",
+        "category": "Electronics",
+        "price": 59.99,
+        "stock": 120,
+        "status": "In Stock"
+    },
+    {
+        "id": 2,
+        "name": "USB-C Charging Cable",
+        "category": "Electronics",
+        "price": 12.99,
+        "stock": 340,
+        "status": "In Stock"
+    },
+    {
+        "id": 3,
+        "name": "Mechanical Keyboard",
+        "category": "Electronics",
+        "price": 89.99,
+        "stock": 45,
+        "status": "In Stock"
+    },
+    {
+        "id": 4,
+        "name": "4K Ultra HD Monitor",
+        "category": "Electronics",
+        "price": 349.99,
+        "stock": 8,
+        "status": "Low Stock"
+    },
+    {
+        "id": 5,
+        "name": "Portable Power Bank 20000mAh",
+        "category": "Electronics",
+        "price": 29.99,
+        "stock": 200,
+        "status": "In Stock"
+    },
+    {
+        "id": 6,
+        "name": "Men's Cotton T-Shirt",
+        "category": "Clothing",
+        "price": 19.99,
+        "stock": 500,
+        "status": "In Stock"
+    },
+    {
+        "id": 7,
+        "name": "Women's Running Shoes",
+        "category": "Clothing",
+        "price": 74.99,
+        "stock": 60,
+        "status": "In Stock"
+    },
+    {
+        "id": 8,
+        "name": "Denim Jacket",
+        "category": "Clothing",
+        "price": 49.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 9,
+        "name": "Winter Wool Scarf",
+        "category": "Clothing",
+        "price": 24.99,
+        "stock": 3,
+        "status": "Low Stock"
+    },
+    {
+        "id": 10,
+        "name": "Leather Belt",
+        "category": "Clothing",
+        "price": 34.99,
+        "stock": 85,
+        "status": "In Stock"
+    },
+    {
+        "id": 11,
+        "name": "Non-Stick Frying Pan",
+        "category": "Home & Kitchen",
+        "price": 27.99,
+        "stock": 150,
+        "status": "In Stock"
+    },
+    {
+        "id": 12,
+        "name": "Stainless Steel Knife Set",
+        "category": "Home & Kitchen",
+        "price": 44.99,
+        "stock": 70,
+        "status": "In Stock"
+    },
+    {
+        "id": 13,
+        "name": "Electric Kettle 1.7L",
+        "category": "Home & Kitchen",
+        "price": 32.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 14,
+        "name": "Bamboo Cutting Board",
+        "category": "Home & Kitchen",
+        "price": 18.99,
+        "stock": 210,
+        "status": "In Stock"
+    },
+    {
+        "id": 15,
+        "name": "Glass Food Storage Containers",
+        "category": "Home & Kitchen",
+        "price": 22.99,
+        "stock": 5,
+        "status": "Low Stock"
+    },
+    {
+        "id": 16,
+        "name": "Yoga Mat 6mm",
+        "category": "Sports",
+        "price": 25.99,
+        "stock": 180,
+        "status": "In Stock"
+    },
+    {
+        "id": 17,
+        "name": "Adjustable Dumbbells Set",
+        "category": "Sports",
+        "price": 129.99,
+        "stock": 30,
+        "status": "In Stock"
+    },
+    {
+        "id": 18,
+        "name": "Tennis Racket Pro",
+        "category": "Sports",
+        "price": 89.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 19,
+        "name": "Resistance Bands Pack",
+        "category": "Sports",
+        "price": 15.99,
+        "stock": 400,
+        "status": "In Stock"
+    },
+    {
+        "id": 20,
+        "name": "Cycling Helmet",
+        "category": "Sports",
+        "price": 42.99,
+        "stock": 9,
+        "status": "Low Stock"
+    },
+    {
+        "id": 21,
+        "name": "JavaScript: The Good Parts",
+        "category": "Books",
+        "price": 29.99,
+        "stock": 95,
+        "status": "In Stock"
+    },
+    {
+        "id": 22,
+        "name": "Clean Code",
+        "category": "Books",
+        "price": 37.99,
+        "stock": 60,
+        "status": "In Stock"
+    },
+    {
+        "id": 23,
+        "name": "Design Patterns",
+        "category": "Books",
+        "price": 45.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 24,
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "price": 39.99,
+        "stock": 7,
+        "status": "Low Stock"
+    },
+    {
+        "id": 25,
+        "name": "Refactoring",
+        "category": "Books",
+        "price": 42.99,
+        "stock": 110,
+        "status": "In Stock"
+    },
+    {
+        "id": 26,
+        "name": "Building Blocks Set 500pc",
+        "category": "Toys",
+        "price": 34.99,
+        "stock": 250,
+        "status": "In Stock"
+    },
+    {
+        "id": 27,
+        "name": "Remote Control Car",
+        "category": "Toys",
+        "price": 29.99,
+        "stock": 4,
+        "status": "Low Stock"
+    },
+    {
+        "id": 28,
+        "name": "Board Game Collection",
+        "category": "Toys",
+        "price": 24.99,
+        "stock": 80,
+        "status": "In Stock"
+    },
+    {
+        "id": 29,
+        "name": "Plush Teddy Bear",
+        "category": "Toys",
+        "price": 14.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 30,
+        "name": "Science Experiment Kit",
+        "category": "Toys",
+        "price": 39.99,
+        "stock": 55,
+        "status": "In Stock"
+    },
+    {
+        "id": 31,
+        "name": "Vitamin C Serum",
+        "category": "Beauty",
+        "price": 18.99,
+        "stock": 300,
+        "status": "In Stock"
+    },
+    {
+        "id": 32,
+        "name": "Hair Dryer 2000W",
+        "category": "Beauty",
+        "price": 44.99,
+        "stock": 6,
+        "status": "Low Stock"
+    },
+    {
+        "id": 33,
+        "name": "Organic Face Moisturizer",
+        "category": "Beauty",
+        "price": 22.99,
+        "stock": 140,
+        "status": "In Stock"
+    },
+    {
+        "id": 34,
+        "name": "Nail Polish Set 12 Colors",
+        "category": "Beauty",
+        "price": 16.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 35,
+        "name": "Electric Toothbrush",
+        "category": "Beauty",
+        "price": 49.99,
+        "stock": 75,
+        "status": "In Stock"
+    },
+    {
+        "id": 36,
+        "name": "Car Phone Mount",
+        "category": "Automotive",
+        "price": 15.99,
+        "stock": 220,
+        "status": "In Stock"
+    },
+    {
+        "id": 37,
+        "name": "Dash Camera 1080p",
+        "category": "Automotive",
+        "price": 69.99,
+        "stock": 2,
+        "status": "Low Stock"
+    },
+    {
+        "id": 38,
+        "name": "Tire Pressure Gauge",
+        "category": "Automotive",
+        "price": 9.99,
+        "stock": 350,
+        "status": "In Stock"
+    },
+    {
+        "id": 39,
+        "name": "Car Vacuum Cleaner",
+        "category": "Automotive",
+        "price": 39.99,
+        "stock": 0,
+        "status": "Out of Stock"
+    },
+    {
+        "id": 40,
+        "name": "LED Interior Lights Strip",
+        "category": "Automotive",
+        "price": 12.99,
+        "stock": 190,
+        "status": "In Stock"
+    }
+]
